@@ -10,6 +10,7 @@ APP = Flask(__name__)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 DB = SQLAlchemy(APP)
+migrate = Migrate(APP, DB)
 API = openaq.OpenAQ()
 
 class Record(DB.Model):
